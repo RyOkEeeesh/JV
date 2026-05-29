@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/0515_if/0515_if.iml" filepath="$PROJECT_DIR$/0515_if/0515_if.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0515_input/0515_input.iml" filepath="$PROJECT_DIR$/0515_input/0515_input.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0515_string/0515_string.iml" filepath="$PROJECT_DIR$/0515_string/0515_string.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0522_loop/0522_loop.iml" filepath="$PROJECT_DIR$/0522_loop/0522_loop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0522_try_catch/0522_try_catch.iml" filepath="$PROJECT_DIR$/0522_try_catch/0522_try_catch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JV.iml" filepath="$PROJECT_DIR$/JV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/type/type.iml" filepath="$PROJECT_DIR$/type/type.iml" />
+    </modules>
+  </component>
+</project>
