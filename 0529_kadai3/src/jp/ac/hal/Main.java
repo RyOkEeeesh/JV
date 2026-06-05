@@ -16,10 +16,8 @@ public class Main {
         }
 
         // 3
-        for (int i = 0; i <= 10; i++) {
-            if (i % 2 == 0) {
-                System.out.println(i);
-            }
+        for (int i = 0; i <= 10; i+=2) {
+            System.out.println(i);
         }
 
         // 4
@@ -69,7 +67,7 @@ public class Main {
             System.out.print("0~9の数値を入力してください: ");
             ans = sc.nextInt();
             count++;
-        } while (ans == r);
+        } while (ans != r);
 
         System.out.println("正解！");
         System.out.println("試行回数" + count);
