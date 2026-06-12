@@ -1,7 +1,7 @@
 package ac.jp.hal;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.util.StringJoiner;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,26 +35,30 @@ public class Main {
         // op1
         System.out.println("スコア集計アプリ");
         final int N = 5;
-        int[] points = new int[N];
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        StringJoiner sj = new StringJoiner(",");
 
         for (int i = 0; i < N; i++) {
             System.out.print("点数: ");
-            points[i] = sc.nextInt();
+            int n = sc.nextInt();
+            sum += n;
+            sj.add(String.valueOf(n));
+            max = Math.max(max, n);
+            min = Math.min(min, n);
         }
 
-        String result = Arrays.stream(points)
-                .mapToObj(String::valueOf)
-                .collect(Collectors.joining(", "));
-        System.out.println("入力一覧" + result);
-        System.out.println("最高得点" + Arrays.stream(points).max().getAsInt());
-        System.out.println("最低得点" + Arrays.stream(points).min().getAsInt());
-        System.out.println("平均点" + (int) Arrays.stream(points).average().orElse(0.0));
+        System.out.println("入力一覧 " + sj);
+        System.out.println("最高得点 " + max);
+        System.out.println("最低得点 " + min);
+        System.out.println("平均点 " + sum / N);
 
         // op2
         System.out.println("アンケート集計アプリ");
         final int M = 10;
         int[] counts = new int[5];
-        int sum = 0;
+        sum = 0;
 
         for (int i = 0; i < M; i++) {
             System.out.print("アンケート結果(1~5)");
@@ -62,14 +66,16 @@ public class Main {
             if (a == -1) {
                 break;
             }
-            counts[a]++;
+            counts[a-1]++;
             sum++;
         }
 
         for (int i = 0; i < counts.length; i++) {
-            System.out.println(i + ": " + counts[i]);
+            System.out.println(i + 1 + ": " + counts[i]);
         }
 
         System.out.println("total: " + sum);
+
+        sc.close();
     }
 }
