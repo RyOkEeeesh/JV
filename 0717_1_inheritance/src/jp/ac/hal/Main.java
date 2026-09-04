@@ -2,14 +2,14 @@ package jp.ac.hal;
 
 public class Main {
     public static void main(String[] args) {
-    Car car = new Car("ToYoCha", 0.8);
-    car.drive();
+        Car car = new Car("ToYoCha", 0.8);
+        car.drive();
 
-    Taxi taxi = new Taxi("MaTyuDa", 1.2);
-    taxi.drive();
-    taxi.startMeter();
+        Taxi taxi = new Taxi("MaTyuDa", 1.2);
+        taxi.drive();
+        taxi.startMeter();
 
-    // こクラスのインスタンスは、親クラスの枠で保持できる
+        // こクラスのインスタンスは、親クラスの枠で保持できる
         Car car2 = new Taxi("ToYoCha", 0.8);
         car2.drive();
         // これはできない
