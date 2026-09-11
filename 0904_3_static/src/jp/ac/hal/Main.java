@@ -11,5 +11,7 @@ public class Main {
 
         sample.sta_f = 15;
         sample.sta_m();
+
+        System.out.println(Sample.MAX_LEVEL);
     }
 }

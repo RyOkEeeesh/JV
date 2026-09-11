@@ -13,4 +13,7 @@ public class Sample {
     public static void sta_m() {}
     public void insta_m2() {}
     public static void sta_m2() {}
+
+    // 定数
+    public static final int MAX_LEVEL = 90;
 }
