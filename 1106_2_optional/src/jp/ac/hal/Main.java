@@ -64,6 +64,14 @@ public class Main {
         // 存在しない場合は規定値が用いられる
         System.out.println(oie.orElse(0));
 
+        // 存在する場合の処理の指定
+        oi.ifPresent(System.out::println);
+
+        // 存在しない場合を考慮した処理の指定
+        oi.ifPresentOrElse(System.out::println, () -> System.out.println("空"));
+        oie.ifPresentOrElse(System.out::println, () -> System.out.println("空"));
+
+
         Optional<String> os = Optional.of("abc");
 
         System.out.println(os);
