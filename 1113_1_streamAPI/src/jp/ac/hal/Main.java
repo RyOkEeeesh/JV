@@ -3,6 +3,7 @@ package jp.ac.hal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -126,6 +127,17 @@ public class Main {
                 .distinct()
                 .forEach(System.out::println);
 
+        // 加工と型変換 map
+        names.stream()
+                .map(name -> name + "さん")
+                .forEach(System.out::println);
+
+        // int -> str
+        scores.stream()
+                .map(score -> score + "点")
+                .filter(score -> score.startsWith("2"))
+                .forEach(System.out::println);
+
         // 中間処理は複数可能
         scores.stream()
                 .distinct()
@@ -187,5 +199,48 @@ public class Main {
                 scores.stream()
                         .reduce(0, Integer::sum)
         );
+
+        // 他にも階乗で全てかけるか
+        List<Integer> data = List.of(1, 2, 3, 4, 5);
+
+        System.out.println(
+                data.stream()
+                        .reduce(1, (fact, val) -> fact * val)
+        );
+
+        // MapによるStreamの紹介
+        // そのままでは呼べないので、
+        // keySet(),values(),entrySet()を経由して
+        // ストリームに変換する。
+        Map<String, Integer> ages = Map.of(
+                "a", 21,
+                "c", 23,
+                "b", 22
+        );
+
+        // キー
+        ages.keySet().forEach(System.out::println);
+
+        // バリュー
+        ages.values().forEach(System.out::println);
+
+        // キーバリュ＝
+        ages.forEach((key, value) -> System.out.printf("%s さん %d 歳%n", key, value));
+
+        // sorted
+        ages.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+
+        // キーと値をセット(エントリー)で処理したい場合。
+        ages.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+                .forEach(entry -> System.out.printf("%s さん: %d歳%n", entry.getKey(), entry.getValue()));
+
+        // 最後に
+        // Stream APIによる関数型スタイルは、
+        // Javaだけでなく、Scala、Kotlin、Rust、F#などでも
+        // 採用されています。
+        // バグが起きにくく、並行処理（マルチコアCPUでの同時処理）に強く、
+        // コードが圧倒的に読みやすくなる といったメリットがあるので、是非ものにしましょう！
     }
 }
